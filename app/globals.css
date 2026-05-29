@@ -1,7 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
-@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Tajawal:wght@200;300;400;500;700;800;900&display=swap");
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -127,7 +126,7 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-family: "Cairo", "Tajawal", "Segoe UI", Tahoma, Arial, sans-serif;
+    font-family: var(--font-cairo), var(--font-tajawal), "Segoe UI", Tahoma, Arial, sans-serif;
   }
   html {
     @apply font-sans;

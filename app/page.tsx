@@ -21,12 +21,6 @@ export default function Home() {
               href="/superadmin-manager"
               message="Opening add new super admin page..."
             />
-            <AdminTile
-              title="ICONS"
-              description="Manage system icons"
-              href="/icons"
-              message="Opening icons page..."
-            />
           </div>
         </Card>
       </main>
