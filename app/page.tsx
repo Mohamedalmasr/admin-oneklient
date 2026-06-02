@@ -8,7 +8,7 @@ export default function Home() {
       <AdminHeader />
       <main className="flex-1 bg-slate-200 p-8 dark:bg-slate-800">
         <Card className="mx-auto max-w-5xl bg-white p-12 dark:bg-slate-900">
-          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="flex flex-wrap justify-center gap-8">
             <AdminTile
               title="ONBOARDING"
               description="Add new organization"

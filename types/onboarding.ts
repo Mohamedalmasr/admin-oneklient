@@ -1,3 +1,5 @@
+import { SuperAdmin } from "./superadmin"
+
 export type Contact = {
   label: string
   method: string
@@ -34,6 +36,7 @@ export type OrganizationData = {
     province: string
   }
   contacts: Contact[]
+  superAdmins: SuperAdmin[]
   createdAt: string
 }
 
