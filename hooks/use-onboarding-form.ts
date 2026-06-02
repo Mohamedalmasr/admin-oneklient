@@ -130,6 +130,7 @@ export function useOnboardingForm() {
       province: formData.province,
     },
     contacts: contacts.filter((c) => c.value.trim() !== ""),
+    superAdmins: [],
     createdAt: new Date().toISOString(),
   }), [formData, contacts])
 

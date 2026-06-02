@@ -12,7 +12,8 @@ function wasPageReloaded() {
   try {
     const navEntries = performance.getEntriesByType("navigation")
     if (navEntries && navEntries.length > 0) {
-      return navEntries[0].type === "reload"
+      const nav = navEntries[0] as PerformanceNavigationTiming
+      return nav.type === "reload"
     }
     if ((performance as any).navigation) {
       return (performance as any).navigation.type === 1
@@ -186,6 +187,6 @@ function getFilteredOrganizations(orgs: OrganizationData[], search: string) {
   const value = search.trim().toLowerCase()
   if (!value) return orgs
   return orgs.filter((org) =>
-    (org.organizationName || org.name || "").toLowerCase().includes(value)
+    (org.organizationName || "").toLowerCase().includes(value)
   )
 }
