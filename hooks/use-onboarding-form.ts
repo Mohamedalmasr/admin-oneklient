@@ -154,9 +154,7 @@ export function useOnboardingForm() {
   }, [validateForm, buildOrganizationData, saveOrganization, router])
 
   const handleCancel = useCallback(() => {
-    if (confirm("Are you sure you want to cancel?")) {
-      router.push("/")
-    }
+    router.push("/")
   }, [router])
 
   return {
