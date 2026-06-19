@@ -318,7 +318,7 @@ export default function OnboardingPage() {
                 </div>
 
                 <div className="col-span-12 sm:col-span-3 space-y-1">
-                  <Label className="text-base">Fiscal Year End <span className="text-destructive">*</span></Label>
+                  <Label className="text-base text-center w-full block">Fiscal Year End</Label>
                   <div className="flex gap-4">
                     <div className="flex-1">
                       <Select
@@ -427,8 +427,20 @@ export default function OnboardingPage() {
             <Separator className="mx-6" />
 
             <CardHeader className="pb-3">
-              <CardTitle className="text-base uppercase tracking-wide">
+              <CardTitle className="text-base uppercase tracking-wide inline-flex items-center gap-3">
                 Legal Address
+                <Select
+                  value={formData.legalAddressCountry}
+                  onValueChange={(v) => handleInputChange("legalAddressCountry", v)}
+                >
+                  <SelectTrigger className="text-xs py-1 h-auto w-auto min-w-[100px]">
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="canada">Canada</SelectItem>
+                    <SelectItem value="usa">USA</SelectItem>
+                  </SelectContent>
+                </Select>
               </CardTitle>
             </CardHeader>
             <CardContent>
@@ -504,21 +516,6 @@ export default function OnboardingPage() {
                       handleInputChange("province", e.target.value)
                     }
                   />
-                </div>
-                <div className="col-span-12 sm:col-span-3 space-y-1.5">
-                  <Label>Country <span className="text-destructive">*</span></Label>
-                  <Select
-                    value={formData.legalAddressCountry}
-                    onValueChange={(v) => handleInputChange("legalAddressCountry", v)}
-                  >
-                    <SelectTrigger className="text-base py-2 h-auto w-full">
-                      <SelectValue placeholder="Select country" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="canada">Canada</SelectItem>
-                      <SelectItem value="usa">USA</SelectItem>
-                    </SelectContent>
-                  </Select>
                 </div>
               </div>
             </CardContent>
