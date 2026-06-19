@@ -80,7 +80,8 @@ export default function OnboardingPage() {
             </CardHeader>
             <CardHeader className="pb-3">
               <CardTitle className="text-base uppercase tracking-wide inline-flex items-center">
-                Organization Info
+                Organization Info{" "}
+                
                 <button
                   type="button"
                   className="inline-flex h-6 w-6 items-center justify-center rounded-full border border-sky-300 bg-sky-50 text-sky-600 hover:bg-sky-100 transition-colors ml-2"
@@ -93,22 +94,25 @@ export default function OnboardingPage() {
             <CardContent className="space-y-5">
               <div className="max-w-lg space-y-1.5">
                 <Label htmlFor="clientCard" className="mb-1.5 block">
-                  Client Card Number <span className="text-destructive">*</span>
+                  Client Card Number 
                 </Label>
-                <Input
-                  id="clientCard"
-                  placeholder="Client card number"
-                  value={formData.clientCard}
-                  onChange={(e) => handleInputChange("clientCard", e.target.value)}
-                />
+                <div className="relative">
+                  <Input
+                    id="clientCard"
+                    placeholder="Client card number"
+                    value={formData.clientCard}
+                    onChange={(e) => handleInputChange("clientCard", e.target.value)}
+                  />
+                  <span className="absolute right-2.5 top-1/2 -translate-y-1/2 text-destructive pointer-events-none select-none leading-none">*</span>
+                </div>
               </div>
             </CardContent>
 
             <Separator className="mx-6" />
 
             <CardHeader className="pb-3">
-              <CardTitle className="text-base uppercase tracking-wide">
-                Organization Details
+              <CardTitle className="text-base uppercase tracking-wide inline-flex items-center gap-1">
+                Organization Details 
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-5">
@@ -116,27 +120,33 @@ export default function OnboardingPage() {
                 <div className="space-y-1.5">
                   <Label htmlFor="orgName">
                     Organization Name{" "}
-                    <span className="text-destructive">*</span>
+                    
                   </Label>
-                  <Input
-                    id="orgName"
-                    placeholder="Enter organization name"
-                    value={formData.organizationName}
-                    onChange={(e) =>
-                      handleInputChange("organizationName", e.target.value)
-                    }
-                  />
+                  <div className="relative">
+                    <Input
+                      id="orgName"
+                      placeholder="Enter organization name"
+                      value={formData.organizationName}
+                      onChange={(e) =>
+                        handleInputChange("organizationName", e.target.value)
+                      }
+                    />
+                    <span className="absolute right-2.5 top-1/2 -translate-y-1/2 text-destructive pointer-events-none select-none leading-none">*</span>
+                  </div>
                 </div>
                 <div className="space-y-1.5">
-                  <Label htmlFor="tradeName">Trade Name</Label>
-                  <Input
-                    id="tradeName"
-                    placeholder="Enter trade name"
-                    value={formData.tradeName}
-                    onChange={(e) =>
-                      handleInputChange("tradeName", e.target.value)
-                    }
-                  />
+                  <Label htmlFor="tradeName">Trade Name </Label>
+                  <div className="relative">
+                    <Input
+                      id="tradeName"
+                      placeholder="Enter trade name"
+                      value={formData.tradeName}
+                      onChange={(e) =>
+                        handleInputChange("tradeName", e.target.value)
+                      }
+                    />
+                    <span className="absolute right-2.5 top-1/2 -translate-y-1/2 text-destructive pointer-events-none select-none leading-none">*</span>
+                  </div>
                 </div>
               </div>
 
@@ -146,7 +156,7 @@ export default function OnboardingPage() {
                 <div className="space-y-1">
                   <Label className="text-base">
                     Legal Structure{" "}
-                    <span className="text-destructive">*</span>
+                    
                   </Label>
                   <Select
                     value={formData.legalStructure}
@@ -154,8 +164,9 @@ export default function OnboardingPage() {
                       handleInputChange("legalStructure", v)
                     }
                   >
-                    <SelectTrigger className="text-base py-2 h-auto">
+                    <SelectTrigger className="text-base py-2 h-auto w-full relative">
                       <SelectValue placeholder="Select structure" />
+                      <span className="absolute right-8 top-1/2 -translate-y-1/2 text-destructive pointer-events-none select-none leading-none">*</span>
                     </SelectTrigger>
                     <SelectContent>
                       <SelectItem value="corporation">Corporation</SelectItem>
@@ -169,7 +180,7 @@ export default function OnboardingPage() {
                 </div>
                 <div className="space-y-1">
                   <Label className="text-base">
-                    Legal Status <span className="text-destructive">*</span>
+                    Legal Status 
                   </Label>
                   <Select
                     value={formData.organizationLegalStatus}
@@ -177,8 +188,9 @@ export default function OnboardingPage() {
                       handleInputChange("organizationLegalStatus", v)
                     }
                   >
-                    <SelectTrigger className="text-base py-2 h-auto">
+                    <SelectTrigger className="text-base py-2 h-auto w-full relative">
                       <SelectValue placeholder="Select status" />
+                      <span className="absolute right-8 top-1/2 -translate-y-1/2 text-destructive pointer-events-none select-none leading-none">*</span>
                     </SelectTrigger>
                     <SelectContent>
                       <SelectItem value="active">Active</SelectItem>
@@ -193,14 +205,15 @@ export default function OnboardingPage() {
                 </div>
                 <div className="space-y-1">
                   <Label className="text-base">
-                    Sector <span className="text-destructive">*</span>
+                    Sector 
                   </Label>
                   <Select
                     value={formData.sector}
                     onValueChange={(v) => handleInputChange("sector", v)}
                   >
-                    <SelectTrigger className="text-base py-2 h-auto">
+                    <SelectTrigger className="text-base py-2 h-auto w-full relative">
                       <SelectValue placeholder="Select sector" />
+                      <span className="absolute right-8 top-1/2 -translate-y-1/2 text-destructive pointer-events-none select-none leading-none">*</span>
                     </SelectTrigger>
                     <SelectContent>
                       <SelectItem value="agriculture">
@@ -221,7 +234,7 @@ export default function OnboardingPage() {
                 <div className="col-span-12 sm:col-span-5 space-y-1">
                   <Label className="text-base">
                     Organization Type{" "}
-                    <span className="text-destructive">*</span>
+                    
                   </Label>
                   <Select
                     value={formData.organizationType}
@@ -229,8 +242,9 @@ export default function OnboardingPage() {
                       handleInputChange("organizationType", v)
                     }
                   >
-                    <SelectTrigger className="text-base py-2 h-auto">
+                    <SelectTrigger className="text-base py-2 h-auto w-full relative">
                       <SelectValue placeholder="Select type" />
+                      <span className="absolute right-8 top-1/2 -translate-y-1/2 text-destructive pointer-events-none select-none leading-none">*</span>
                     </SelectTrigger>
                     <SelectContent>
                       <SelectItem value="non-profit">
@@ -250,14 +264,15 @@ export default function OnboardingPage() {
                 </div>
                 <div className="col-span-6 sm:col-span-2 space-y-1">
                   <Label className="text-base">
-                    Country <span className="text-destructive">*</span>
+                    Country 
                   </Label>
                   <Select
                     value={formData.country}
                     onValueChange={(v) => handleInputChange("country", v)}
                   >
-                    <SelectTrigger className="text-base py-2 h-auto">
+                    <SelectTrigger className="text-base py-2 h-auto w-full relative">
                       <SelectValue placeholder="Country" />
+                      <span className="absolute right-8 top-1/2 -translate-y-1/2 text-destructive pointer-events-none select-none leading-none">*</span>
                     </SelectTrigger>
                     <SelectContent>
                       <SelectItem value="canada">Canada</SelectItem>
@@ -269,14 +284,15 @@ export default function OnboardingPage() {
                 </div>
                 <div className="col-span-6 sm:col-span-2 space-y-1">
                   <Label className="text-base">
-                    Prov <span className="text-destructive">*</span>
+                    Prov 
                   </Label>
                   <Select
                     value={formData.prov}
                     onValueChange={(v) => handleInputChange("prov", v)}
                   >
-                    <SelectTrigger className="text-base py-2 h-auto">
+                    <SelectTrigger className="text-base py-2 h-auto w-full relative">
                       <SelectValue placeholder="Prov" />
+                      <span className="absolute right-8 top-1/2 -translate-y-1/2 text-destructive pointer-events-none select-none leading-none">*</span>
                     </SelectTrigger>
                     <SelectContent>
                       <SelectItem value="ON">Ontario</SelectItem>
@@ -313,10 +329,13 @@ export default function OnboardingPage() {
               <div className="grid grid-cols-12 gap-4">
                 <div className="col-span-12 sm:col-span-3 space-y-1.5">
                   <Label>Date Established</Label>
-                  <DatePicker
-                    value={formData.dateEstablished}
-                    onChange={(v) => handleInputChange("dateEstablished", v)}
-                  />
+                  <div className="relative">
+                    <DatePicker
+                      value={formData.dateEstablished}
+                      onChange={(v) => handleInputChange("dateEstablished", v)}
+                    />
+                    <span className="absolute right-3 top-1/2 -translate-y-1/2 text-destructive pointer-events-none select-none leading-none">*</span>
+                  </div>
                 </div>
 
                 <div className="col-span-6 sm:col-span-2 space-y-1">
@@ -325,8 +344,9 @@ export default function OnboardingPage() {
                     value={formData.fiscalMonth}
                     onValueChange={(v) => handleInputChange("fiscalMonth", v)}
                   >
-                    <SelectTrigger className="text-base py-2 h-auto">
+                    <SelectTrigger className="text-base py-2 h-auto w-full relative">
                       <SelectValue placeholder="Month" />
+                      <span className="absolute right-8 top-1/2 -translate-y-1/2 text-destructive pointer-events-none select-none leading-none">*</span>
                     </SelectTrigger>
                     <SelectContent>
                       {[
@@ -359,8 +379,9 @@ export default function OnboardingPage() {
                     value={formData.fiscalDay}
                     onValueChange={(v) => handleInputChange("fiscalDay", v)}
                   >
-                    <SelectTrigger className="text-base py-2 h-auto">
+                    <SelectTrigger className="text-base py-2 h-auto w-full relative">
                       <SelectValue placeholder="Day" />
+                      <span className="absolute right-8 top-1/2 -translate-y-1/2 text-destructive pointer-events-none select-none leading-none">*</span>
                     </SelectTrigger>
                     <SelectContent>
                       {Array.from({ length: 31 }, (_, i) => (
@@ -377,21 +398,27 @@ export default function OnboardingPage() {
 
                 <div className="col-span-12 sm:col-span-3 space-y-1.5">
                   <Label>Date Dissolved</Label>
-                  <DatePicker
-                    value={formData.dateDissolved}
-                    onChange={(v) => handleInputChange("dateDissolved", v)}
-                  />
+                  <div className="relative">
+                    <DatePicker
+                      value={formData.dateDissolved}
+                      onChange={(v) => handleInputChange("dateDissolved", v)}
+                    />
+                    <span className="absolute right-3 top-1/2 -translate-y-1/2 text-destructive pointer-events-none select-none leading-none">*</span>
+                  </div>
                 </div>
                 <div className="col-span-12 sm:col-span-3 space-y-1.5">
                   <Label htmlFor="businessNumber">Business Number</Label>
-                  <Input
-                    id="businessNumber"
-                    placeholder="Business Number"
-                    value={formData.businessNumber}
-                    onChange={(e) =>
-                      handleInputChange("businessNumber", e.target.value)
-                    }
-                  />
+                  <div className="relative">
+                    <Input
+                      id="businessNumber"
+                      placeholder="Business Number"
+                      value={formData.businessNumber}
+                      onChange={(e) =>
+                        handleInputChange("businessNumber", e.target.value)
+                      }
+                    />
+                    <span className="absolute right-2.5 top-1/2 -translate-y-1/2 text-destructive pointer-events-none select-none leading-none">*</span>
+                  </div>
                 </div>
               </div>
 
@@ -400,25 +427,31 @@ export default function OnboardingPage() {
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
                 <div className="space-y-1.5">
                   <Label htmlFor="hstGst">HST / GST</Label>
-                  <Input
-                    id="hstGst"
-                    placeholder="HST/GST number"
-                    value={formData.hstGst}
-                    onChange={(e) =>
-                      handleInputChange("hstGst", e.target.value)
-                    }
-                  />
+                  <div className="relative">
+                    <Input
+                      id="hstGst"
+                      placeholder="HST/GST number"
+                      value={formData.hstGst}
+                      onChange={(e) =>
+                        handleInputChange("hstGst", e.target.value)
+                      }
+                    />
+                    <span className="absolute right-2.5 top-1/2 -translate-y-1/2 text-destructive pointer-events-none select-none leading-none">*</span>
+                  </div>
                 </div>
                 <div className="space-y-1.5">
                   <Label htmlFor="payroll">Payroll</Label>
-                  <Input
-                    id="payroll"
-                    placeholder="Payroll number"
-                    value={formData.payroll}
-                    onChange={(e) =>
-                      handleInputChange("payroll", e.target.value)
-                    }
-                  />
+                  <div className="relative">
+                    <Input
+                      id="payroll"
+                      placeholder="Payroll number"
+                      value={formData.payroll}
+                      onChange={(e) =>
+                        handleInputChange("payroll", e.target.value)
+                      }
+                    />
+                    <span className="absolute right-2.5 top-1/2 -translate-y-1/2 text-destructive pointer-events-none select-none leading-none">*</span>
+                  </div>
                 </div>
               </div>
             </CardContent>
@@ -434,69 +467,87 @@ export default function OnboardingPage() {
               <div className="grid grid-cols-12 gap-4">
                 <div className="col-span-6 sm:col-span-2 space-y-1.5">
                   <Label htmlFor="unitApt">Unit / Apt</Label>
-                  <Input
-                    id="unitApt"
-                    placeholder="Unit"
-                    value={formData.unitApt}
-                    onChange={(e) =>
-                      handleInputChange("unitApt", e.target.value)
-                    }
-                  />
+                  <div className="relative">
+                    <Input
+                      id="unitApt"
+                      placeholder="Unit"
+                      value={formData.unitApt}
+                      onChange={(e) =>
+                        handleInputChange("unitApt", e.target.value)
+                      }
+                    />
+                    <span className="absolute right-2.5 top-1/2 -translate-y-1/2 text-destructive pointer-events-none select-none leading-none">*</span>
+                  </div>
                 </div>
                 <div className="col-span-6 sm:col-span-2 space-y-1.5">
                   <Label htmlFor="streetNumber">Street #</Label>
-                  <Input
-                    id="streetNumber"
-                    placeholder="Street #"
-                    value={formData.streetNumber}
-                    onChange={(e) =>
-                      handleInputChange("streetNumber", e.target.value)
-                    }
-                  />
+                  <div className="relative">
+                    <Input
+                      id="streetNumber"
+                      placeholder="Street #"
+                      value={formData.streetNumber}
+                      onChange={(e) =>
+                        handleInputChange("streetNumber", e.target.value)
+                      }
+                    />
+                    <span className="absolute right-2.5 top-1/2 -translate-y-1/2 text-destructive pointer-events-none select-none leading-none">*</span>
+                  </div>
                 </div>
                 <div className="col-span-6 sm:col-span-2 space-y-1.5">
                   <Label htmlFor="direction">Direction</Label>
-                  <Input
-                    id="direction"
-                    placeholder="N / S / E / W"
-                    value={formData.direction}
-                    onChange={(e) =>
-                      handleInputChange("direction", e.target.value)
-                    }
-                  />
+                  <div className="relative">
+                    <Input
+                      id="direction"
+                      placeholder="N / S / E / W"
+                      value={formData.direction}
+                      onChange={(e) =>
+                        handleInputChange("direction", e.target.value)
+                      }
+                    />
+                    <span className="absolute right-2.5 top-1/2 -translate-y-1/2 text-destructive pointer-events-none select-none leading-none">*</span>
+                  </div>
                 </div>
                 <div className="col-span-12 sm:col-span-3 space-y-1.5">
                   <Label htmlFor="streetName">Street Name</Label>
-                  <Input
-                    id="streetName"
-                    placeholder="Street name"
-                    value={formData.streetName}
-                    onChange={(e) =>
-                      handleInputChange("streetName", e.target.value)
-                    }
-                  />
+                  <div className="relative">
+                    <Input
+                      id="streetName"
+                      placeholder="Street name"
+                      value={formData.streetName}
+                      onChange={(e) =>
+                        handleInputChange("streetName", e.target.value)
+                      }
+                    />
+                    <span className="absolute right-2.5 top-1/2 -translate-y-1/2 text-destructive pointer-events-none select-none leading-none">*</span>
+                  </div>
                 </div>
                 <div className="col-span-6 sm:col-span-2 space-y-1.5">
                   <Label htmlFor="city">City</Label>
-                  <Input
-                    id="city"
-                    placeholder="City"
-                    value={formData.city}
-                    onChange={(e) =>
-                      handleInputChange("city", e.target.value)
-                    }
-                  />
+                  <div className="relative">
+                    <Input
+                      id="city"
+                      placeholder="City"
+                      value={formData.city}
+                      onChange={(e) =>
+                        handleInputChange("city", e.target.value)
+                      }
+                    />
+                    <span className="absolute right-2.5 top-1/2 -translate-y-1/2 text-destructive pointer-events-none select-none leading-none">*</span>
+                  </div>
                 </div>
                 <div className="col-span-6 sm:col-span-1 space-y-1.5">
                   <Label htmlFor="province">Prov</Label>
-                  <Input
-                    id="province"
-                    placeholder="Prov"
-                    value={formData.province}
-                    onChange={(e) =>
-                      handleInputChange("province", e.target.value)
-                    }
-                  />
+                  <div className="relative">
+                    <Input
+                      id="province"
+                      placeholder="Prov"
+                      value={formData.province}
+                      onChange={(e) =>
+                        handleInputChange("province", e.target.value)
+                      }
+                    />
+                    <span className="absolute right-2.5 top-1/2 -translate-y-1/2 text-destructive pointer-events-none select-none leading-none">*</span>
+                  </div>
                 </div>
               </div>
             </CardContent>
@@ -507,7 +558,7 @@ export default function OnboardingPage() {
               <div className="flex items-center justify-between">
                 <CardTitle className="text-base uppercase tracking-wide">
                   Contact Information{" "}
-                  <span className="text-destructive">*</span>
+                  
                 </CardTitle>
                 <Button
                   type="button"
@@ -528,8 +579,9 @@ export default function OnboardingPage() {
                       value={contact.label}
                       onValueChange={(v) => updateContact(index, "label", v)}
                     >
-                      <SelectTrigger className="w-[130px] shrink-0 text-base py-2 h-auto">
+                      <SelectTrigger className="w-[130px] shrink-0 text-base py-2 h-auto relative">
                         <SelectValue />
+                        {index === 0 && <span className="absolute right-6 top-1/2 -translate-y-1/2 text-destructive pointer-events-none select-none leading-none">*</span>}
                       </SelectTrigger>
                       <SelectContent>
                         <SelectItem value="Home...">Home</SelectItem>
@@ -542,8 +594,9 @@ export default function OnboardingPage() {
                       value={contact.method}
                       onValueChange={(v) => updateContact(index, "method", v)}
                     >
-                      <SelectTrigger className="w-[120px] shrink-0 text-base py-2 h-auto">
+                      <SelectTrigger className="w-[120px] shrink-0 text-base py-2 h-auto relative">
                         <SelectValue />
+                        {index === 0 && <span className="absolute right-6 top-1/2 -translate-y-1/2 text-destructive pointer-events-none select-none leading-none">*</span>}
                       </SelectTrigger>
                       <SelectContent>
                         <SelectItem value="Phone">Phone</SelectItem>
@@ -554,14 +607,16 @@ export default function OnboardingPage() {
                       </SelectContent>
                     </Select>
 
-                    <Input
-                      className="flex-1"
-                      placeholder="Enter contact value"
-                      value={contact.value}
-                      onChange={(e) =>
-                        updateContact(index, "value", e.target.value)
-                      }
-                    />
+                    <div className="relative flex-1">
+                      <Input
+                        placeholder="Enter contact value"
+                        value={contact.value}
+                        onChange={(e) =>
+                          updateContact(index, "value", e.target.value)
+                        }
+                      />
+                      {index === 0 && <span className="absolute right-2.5 top-1/2 -translate-y-1/2 text-destructive pointer-events-none select-none leading-none">*</span>}
+                    </div>
 
                     {index > 0 && (
                       <Button
