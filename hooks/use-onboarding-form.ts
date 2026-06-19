@@ -32,7 +32,7 @@ const initialFormData: OnboardingFormData = {
   streetName: "",
   city: "",
   province: "",
-  legalAddressCountry: "",
+  legalAddressCountry: "canada",
 }
 
 export function useOnboardingForm() {
