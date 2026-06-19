@@ -146,6 +146,7 @@ export function useOnboardingForm() {
     setLocked(true)
     const organization = buildOrganizationData()
     saveOrganization(organization)
+    sessionStorage.setItem("onboardingCompleted", "true")
 
     toast.success("Organization saved successfully!", {
       description: "Redirecting to admin...",

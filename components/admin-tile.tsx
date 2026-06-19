@@ -3,18 +3,30 @@
 import { toast } from "sonner"
 import { cn } from "@/lib/utils"
 
+type Status = "red" | "yellow" | "green"
+
 interface AdminTileProps {
   title: string
   description: string
   href: string
   message?: string
+  status?: Status
 }
+
+const statusConfig: Record<Status, { active: string; inactive: string }> = {
+  red: { active: "bg-red-500 shadow-[0_0_6px_rgba(239,68,68,0.6)]", inactive: "bg-gray-300 dark:bg-gray-600" },
+  yellow: { active: "bg-yellow-400 shadow-[0_0_6px_rgba(234,179,8,0.6)]", inactive: "bg-gray-300 dark:bg-gray-600" },
+  green: { active: "bg-green-500 shadow-[0_0_6px_rgba(34,197,94,0.6)]", inactive: "bg-gray-300 dark:bg-gray-600" },
+}
+
+const statusOrder: Status[] = ["red", "yellow", "green"]
 
 export function AdminTile({
   title,
   description,
   href,
   message,
+  status = "red",
 }: AdminTileProps) {
   const handleClick = (e: React.MouseEvent) => {
     if (message) {
@@ -37,6 +49,17 @@ export function AdminTile({
         "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
       )}
     >
+      <div className="flex gap-1.5 mb-3" dir="ltr">
+        {statusOrder.map((s) => (
+          <span
+            key={s}
+            className={cn(
+              "h-3 w-3 rounded-full transition-all duration-300",
+              status === s ? statusConfig[s].active : statusConfig[s].inactive
+            )}
+          />
+        ))}
+      </div>
       <span className="mb-2 text-base font-semibold text-slate-900 dark:text-slate-100">
         {title}
       </span>
