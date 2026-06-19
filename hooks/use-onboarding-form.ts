@@ -32,6 +32,7 @@ const initialFormData: OnboardingFormData = {
   streetName: "",
   city: "",
   province: "",
+  legalAddressCountry: "",
 }
 
 export function useOnboardingForm() {
@@ -128,6 +129,7 @@ export function useOnboardingForm() {
       streetName: formData.streetName,
       city: formData.city,
       province: formData.province,
+      country: formData.legalAddressCountry,
     },
     contacts: contacts.filter((c) => c.value.trim() !== ""),
     superAdmins: [],
