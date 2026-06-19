@@ -34,6 +34,7 @@ export type OrganizationData = {
     streetName: string
     city: string
     province: string
+    country: string
   }
   contacts: Contact[]
   superAdmins: SuperAdmin[]
@@ -64,4 +65,5 @@ export type OnboardingFormData = {
   streetName: string
   city: string
   province: string
+  legalAddressCountry: string
 }
