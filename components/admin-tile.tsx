@@ -31,7 +31,11 @@ export function AdminTile({
   const handleClick = (e: React.MouseEvent) => {
     if (message) {
       e.preventDefault()
-      toast.success(message)
+      toast.success(message, {
+        duration: 5000,
+        position: "bottom-right",
+        closeButton: true,
+      })
       setTimeout(() => {
         window.location.href = href
       }, 1500)

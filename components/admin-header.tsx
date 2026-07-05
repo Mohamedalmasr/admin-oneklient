@@ -8,6 +8,9 @@ export function AdminHeader() {
   const handleInfoClick = () => {
     toast.info("Code: 1000100", {
       description: "Status information",
+      duration: 5000,
+      position: "bottom-right",
+      closeButton: true,
     })
   }
 
