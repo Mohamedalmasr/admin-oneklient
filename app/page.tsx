@@ -1,9 +1,11 @@
 "use client"
 
 import { useState } from "react"
+import { AdminForm } from "@/components/admin-form"
 import { AdminHeader } from "@/components/admin-header"
 import { AdminTile } from "@/components/admin-tile"
 import { Card } from "@/components/ui/card"
+import { Separator } from "@/components/ui/separator"
 import type { OrganizationData } from "@/types/onboarding"
 
 type Status = "red" | "yellow" | "green"
@@ -41,6 +43,8 @@ export default function Home() {
       <AdminHeader />
       <main className="flex-1 bg-slate-200 p-8 dark:bg-slate-800">
         <Card className="mx-auto max-w-5xl bg-white p-12 dark:bg-slate-900">
+          <AdminForm />
+          <Separator className="my-9" />
           <div className="flex flex-wrap justify-center gap-8">
             <AdminTile
               title="ONBOARDING"
