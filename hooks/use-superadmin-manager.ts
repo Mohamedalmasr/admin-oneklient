@@ -138,7 +138,11 @@ export function useSuperAdminManager() {
       return updated
     })
     setPendingDelete(null)
-    toast.success("SuperAdmin deleted successfully.")
+    toast.success("SuperAdmin deleted successfully.", {
+      duration: 5000,
+      position: "bottom-right",
+      closeButton: true,
+    })
   }, [pendingDelete])
 
   const filteredOrganizations = getFilteredOrganizations(organizations, searchValue)
