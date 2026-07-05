@@ -85,7 +85,7 @@ export default function OnboardingPage() {
                 <button
                   type="button"
                   className="inline-flex h-6 w-6 items-center justify-center rounded-full border border-sky-300 bg-sky-50 text-sky-600 hover:bg-sky-100 transition-colors ml-2"
-                  onClick={() => toast.info("Code: 1000010", { duration: 5000, position: "bottom-right", closeButton: true })}
+                  onClick={() => toast.info("Code: 1000010")}
                 >
                   <HelpCircle className="h-3.5 w-3.5" />
                 </button>
