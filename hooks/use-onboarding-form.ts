@@ -94,9 +94,6 @@ export function useOnboardingForm() {
     if (missing.length > 0) {
       toast.error("Please fill all required fields marked with red asterisk (*)", {
         description: missing.map((m) => `• ${m}`).join("\n"),
-        duration: 5000,
-        position: "bottom-right",
-        closeButton: true,
       })
       return false
     }
@@ -155,9 +152,6 @@ export function useOnboardingForm() {
 
     toast.success("Organization saved successfully!", {
       description: "Redirecting to admin...",
-      duration: 5000,
-      position: "bottom-right",
-      closeButton: true,
     })
 
     setTimeout(() => router.push("/"), 700)
