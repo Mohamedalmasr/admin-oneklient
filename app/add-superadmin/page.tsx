@@ -13,9 +13,27 @@ import {
 } from "@/components/ui/select"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
 import { AdminHeader } from "@/components/admin-header"
 import { useAddSuperadmin } from "@/hooks/use-add-superadmin"
-import { ArrowLeft, Eye, EyeOff, Plus, X } from "lucide-react"
+import { ArrowLeft, CalendarIcon, Eye, EyeOff, Plus, X } from "lucide-react"
+import { Calendar } from "@/components/ui/calendar"
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover"
+import { format, parseISO } from "date-fns"
+import { cn } from "@/lib/utils"
 
 export default function AddSuperAdminPage() {
   const {
@@ -113,7 +131,7 @@ export default function AddSuperAdminPage() {
                 <div className="grid grid-cols-2 gap-4">
                   <div className="space-y-1.5">
                     <Label className="text-muted-foreground text-sm font-bold">Date of Birth</Label>
-                    <Input type="date" value={dob} onChange={(e) => setDob(e.target.value)} />
+                    <DatePicker value={dob} onChange={setDob} />
                   </div>
                   <div className="space-y-1.5">
                     <Label className="text-muted-foreground text-sm font-bold">SIN</Label>
@@ -337,9 +355,35 @@ export default function AddSuperAdminPage() {
 
               {/* Actions */}
               <div className="flex justify-end gap-3 pt-4">
-                <Button variant="outline" onClick={handleCancel} className="min-w-[120px] font-extrabold">
-                  Cancel
-                </Button>
+                <Dialog>
+                  <DialogTrigger asChild>
+                    <Button variant="outline" className="min-w-[120px] font-extrabold">
+                      Cancel
+                    </Button>
+                  </DialogTrigger>
+                  <DialogContent>
+                    <DialogHeader>
+                      <DialogTitle>Cancel?</DialogTitle>
+                      <DialogDescription>
+                        You will lose all unsaved changes. Are you sure you want to cancel?
+                      </DialogDescription>
+                    </DialogHeader>
+                    <DialogFooter>
+                      <DialogClose asChild>
+                        <Button variant="outline" className="min-w-[100px]">
+                          Back
+                        </Button>
+                      </DialogClose>
+                      <Button
+                        variant="destructive"
+                        onClick={handleCancel}
+                        className="min-w-[100px]"
+                      >
+                        Yes, Cancel
+                      </Button>
+                    </DialogFooter>
+                  </DialogContent>
+                </Dialog>
                 <Button onClick={handleSubmit} className="min-w-[120px] font-extrabold">
                   Save
                 </Button>
@@ -349,5 +393,43 @@ export default function AddSuperAdminPage() {
         </div>
       </main>
     </>
+  )
+}
+
+type DatePickerProps = {
+  value: string
+  onChange: (v: string) => void
+  placeholder?: string
+}
+
+function DatePicker({
+  value,
+  onChange,
+  placeholder = "Pick a date",
+}: DatePickerProps) {
+  const selected = value ? parseISO(value) : undefined
+
+  return (
+    <Popover>
+      <PopoverTrigger asChild>
+        <Button
+          variant="outline"
+          className={cn(
+            "w-full justify-start text-left font-normal",
+            !value && "text-muted-foreground",
+          )}
+        >
+          <CalendarIcon className="mr-2 h-4 w-4 shrink-0" />
+          {selected ? format(selected, "PPP") : <span>{placeholder}</span>}
+        </Button>
+      </PopoverTrigger>
+      <PopoverContent className="w-auto p-0" align="start">
+        <Calendar
+          mode="single"
+          selected={selected}
+          onSelect={(day) => onChange(day ? format(day, "yyyy-MM-dd") : "")}
+        />
+      </PopoverContent>
+    </Popover>
   )
 }
